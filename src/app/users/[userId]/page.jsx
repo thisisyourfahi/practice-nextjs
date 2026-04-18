@@ -10,7 +10,7 @@ const UserDetails = async ({ params }) => {
         <div className='min-h-screen shadow-lg p-4 flex justify-center items-center text-center'>
             <div>
                 <h3 className='text-2xl font-bold'>{user.name}</h3>
-                <p>{user.username}</p>
+                <p>Username: {user.username}</p>
                 <div className='text-left mt-4'>
                     <p>Email: {user.email}</p>
                     <p>Phone: {user.phone}</p>
@@ -23,7 +23,7 @@ const UserDetails = async ({ params }) => {
                         <button className='btn btn-info btn-outline'>Home</button>
                     </Link>
                     <Link href={'/users'}>
-                        <button className='btn btn-info btn-outline'>Users</button>
+                        <button className='btn btn-warning btn-outline'>Users</button>
                     </Link>
                 </div>
             </div>

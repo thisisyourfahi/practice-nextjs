@@ -8,18 +8,18 @@ const page = async ({ params }) => {
     return (
         <div className='min-h-screen shadow-lg p-4 flex flex-col justify-center items-center'>
             <div>
-                <h3 className='text-2xl font-bold mb-2'>Title: {post.title}</h3>
+                <h3 className='text-2xl font-bold mb-2'>Title: {post.title.toUpperCase()}</h3>
                 <p>Body: {post.body}</p>
             </div>
             <div className='mt-4 space-x-4'>
                 <Link href={`/users/${post.userId}`}>
-                    <button className='btn btn-accent btn-outline'>User Info</button>
+                    <button className='btn btn-info btn-outline'>User Info</button>
                 </Link>
                 <Link href={'/'}>
                     <button className='btn btn-accent btn-outline'>Home</button>
                 </Link>
                 <Link href={'/posts'}>
-                    <button className='btn btn-accent btn-outline'>Posts</button>
+                    <button className='btn btn-warning btn-outline'>Posts</button>
                 </Link>
             </div>
         </div>
