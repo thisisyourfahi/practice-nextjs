@@ -1,6 +1,15 @@
-import React from 'react';
+'use client'
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathname = usePathname();
+  const links = <>
+    <li><Link className={`${pathname === '/users' ? 'text-primary' : ''}`} href={'/users'}>Users</Link></li>
+    <li><Link className={`${pathname === '/posts' ? 'text-primary' : ''}`} href={'/posts'}>Posts</Link></li>
+    <li><Link className={`${pathname === '/comments' ? 'text-primary' : ''}`} href={'/comments'}>Comments</Link></li>
+  </>
+
   return (
     <div className="max-lg:collapse bg-base-200 lg:mb-48 shadow-sm w-full rounded-md">
       <input id="navbar-1-toggle" className="peer hidden" type="checkbox" />
@@ -10,21 +19,13 @@ const Navbar = () => {
           <label htmlFor="navbar-1-toggle" className="btn btn-ghost lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
           </label>
-          <button className="btn btn-ghost text-xl">daisyUI</button>
+          <Link href={'/'}>
+            <button className="btn btn-ghost text-xl">Home</button>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li><button>Item 1</button></li>
-            <li>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2 bg-base-100 w-40 z-1">
-                  <li><button>Submenu 1</button></li>
-                  <li><button>Submenu 2</button></li>
-                </ul>
-              </details>
-            </li>
-            <li><button>Item 3</button></li>
+            {links}
           </ul>
         </div>
         <div className="navbar-end">
@@ -34,15 +35,7 @@ const Navbar = () => {
 
       <div className="collapse-content lg:hidden z-1">
         <ul className="menu">
-          <li><button>Item 1</button></li>
-          <li>
-            <button>Parent</button>
-            <ul>
-              <li><button>Submenu 1</button></li>
-              <li><button>Submenu 2</button></li>
-            </ul>
-          </li>
-          <li><button>Item 3</button></li>
+          {links}
         </ul>
       </div>
     </div>
