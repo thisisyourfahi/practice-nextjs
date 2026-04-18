@@ -14,7 +14,7 @@ const page = async ({params}) => {
             </div>
             <div className='mt-4 space-x-4'>
                 <Link href={`/posts/${comment.postId}`}>
-                    <button className='btn btn-warning btn-outline'>Which Post's Comment?</button>
+                    <button className='btn btn-warning btn-outline'>Which Post&apos;s Comment?</button>
                 </Link>
                 <Link href={'/'}>
                     <button className='btn btn-info btn-outline'>Home</button>
